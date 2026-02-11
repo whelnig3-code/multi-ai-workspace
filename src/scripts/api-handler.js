@@ -190,8 +190,16 @@ const APIHandler = (() => {
         error: null
       };
     } catch (error) {
-      if (error.name === 'TypeError' && error.message.includes('fetch')) {
-        throw new Error('네트워크 연결을 확인해주세요.');
+      if (error.name === 'TypeError') {
+        if (window.location.protocol === 'file:') {
+          throw new Error(
+            'file:// 프로토콜에서는 API 호출이 차단됩니다 (CORS). ' +
+            'Multi-AI-Workspace.bat을 사용하여 로컬 서버로 실행해주세요.'
+          );
+        }
+        throw new Error(
+          '네트워크 오류가 발생했습니다. CORS 문제이거나 네트워크 연결을 확인해주세요.'
+        );
       }
       throw error;
     }
