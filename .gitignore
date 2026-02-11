@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / AI tools
+.vscode/
+.idea/
+.claude/
+.clinerules
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.tmp
+
+# Node (if added later)
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
